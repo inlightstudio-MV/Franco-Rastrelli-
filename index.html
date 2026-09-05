@@ -316,6 +316,7 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
 .footer-col-title{ font-size:.75rem; text-transform:uppercase; letter-spacing:.025em; color:rgba(255,255,255,.4); margin-bottom:1rem; }
 .footer-col ul{ display:flex; flex-direction:column; gap:.75rem; }
 .footer-col a{ font-size:.875rem; }
+.footer-contact-text{ display:inline-block; font-size:.875rem; color:rgba(255,255,255,.55); line-height:1.5; }
 .anim-link{ display:inline-flex; }
 .anim-link .hv-target{ display:inline-block; opacity:.65; transform:translateX(0); transition:transform .35s cubic-bezier(.2,.75,.28,1), opacity .35s cubic-bezier(.2,.75,.28,1); }
 .anim-link:hover .hv-target{ transform:translateX(4px); opacity:1; }
@@ -575,19 +576,19 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
       <div class="footer-col">
         <div class="footer-col-title">Servizi</div>
         <ul>
-          <li><a href="#development" class="anim-link"><span class="hv-target">Igiene e Prevenzione</span></a></li>
-          <li><a href="#design" class="anim-link"><span class="hv-target">Ortodonzia</span></a></li>
-          <li><a href="#qa" class="anim-link"><span class="hv-target">Implantologia</span></a></li>
-          <li><a href="#consulting" class="anim-link"><span class="hv-target">Estetica del sorriso</span></a></li>
+          <li><a href="#works" class="anim-link"><span class="hv-target">Implantologia</span></a></li>
+          <li><a href="#works" class="anim-link"><span class="hv-target">Ortodonzia</span></a></li>
+          <li><a href="#works" class="anim-link"><span class="hv-target">Odontoiatria Estetica</span></a></li>
+          <li><a href="#works" class="anim-link"><span class="hv-target">Igiene Orale</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Social</div>
+        <div class="footer-col-title">Contatti</div>
         <ul>
-          <li><a href="#facebook" class="anim-link"><span class="hv-target">Facebook</span></a></li>
-          <li><a href="#instagram" class="anim-link"><span class="hv-target">Instagram</span></a></li>
-          <li><a href="#google" class="anim-link"><span class="hv-target">Recensioni Google</span></a></li>
-          <li><a href="#whatsapp" class="anim-link"><span class="hv-target">WhatsApp</span></a></li>
+          <li><span class="footer-contact-text">Via Flaminia, 62 – 00068<br>Rignano Flaminio (RM)</span></li>
+          <li><a href="tel:+390761508520" class="anim-link"><span class="hv-target">Tel. 0761 50 85 20</span></a></li>
+          <li><a href="tel:+393384056353" class="anim-link"><span class="hv-target">Cell. 338 40 56 353</span></a></li>
+          <li><span class="footer-contact-text">Si riceve per appuntamento</span></li>
         </ul>
       </div>
     </div>
@@ -852,7 +853,7 @@ buildWordReveal(aboutH2, [
 const worksH2El = document.getElementById('works-h2');
 buildLineReveal(worksH2El, ['I nostri trattamenti']);
 const servicesH2El = document.getElementById('services-h2');
-buildLineReveal(servicesH2El, ["Come lavoriamo"]);
+buildLineReveal(servicesH2El, ["Tutti i nostri servizi"]);
 const statsH2El = document.getElementById('stats-h2');
 buildLineReveal(statsH2El, ['La cura si vede nei risultati.']);
 const footerH2El = document.getElementById('footer-h2');
@@ -910,10 +911,12 @@ const watermarkCheck = setInterval(() => {
 
 /* ============ Portfolio data ============ */
 const worksData = [
-  { name:'Igiene e Prevenzione', category:'Prevenzione', year:'Ogni età', desc:"Pulizia professionale, sigillature e controlli periodici per mantenere il sorriso sano nel tempo.", tags:['Igiene', 'Sigillature', 'Controlli'], image:'assets/card-igiene.webp' },
-  { name:'Ortodonzia', category:'Allineamento', year:'Adulti e bambini', desc:"Apparecchi tradizionali e allineatori trasparenti per un sorriso ben allineato, a ogni età.", tags:['Apparecchi','Allineatori','Ortodonzia'], image:'assets/card-ortodonzia.webp' },
   { name:'Implantologia', category:'Chirurgia', year:'Impianti moderni', desc:"Impianti dentali di ultima generazione per restituire funzionalità ed estetica al sorriso.", tags:['Impianti','Chirurgia','Protesi'], image:'assets/card-implantologia.webp' },
-  { name:'Estetica del sorriso', category:'Estetica', year:'Sbiancamento e faccette', desc:"Sbiancamento professionale e faccette dentali per un sorriso naturale e luminoso.", tags:['Sbiancamento','Faccette','Estetica'], image:'assets/prima-dopo.webp' },
+  { name:'Ortodonzia', category:'Allineamento', year:'Adulti e bambini', desc:"Apparecchi tradizionali e allineatori trasparenti per un sorriso ben allineato, a ogni età.", tags:['Apparecchi','Allineatori','Ortodonzia'], image:'assets/card-ortodonzia.webp' },
+  { name:'Odontoiatria Estetica', category:'Estetica', year:'Sbiancamento e faccette', desc:"Sbiancamento professionale e faccette dentali per un sorriso naturale e luminoso.", tags:['Sbiancamento','Faccette','Estetica'], image:'assets/prima-dopo.webp' },
+  { name:'Igiene Orale', category:'Prevenzione', year:'Ogni età', desc:"Pulizia professionale, sigillature e controlli periodici per mantenere il sorriso sano nel tempo.", tags:['Igiene', 'Sigillature', 'Controlli'], image:'assets/card-igiene.webp' },
+  { name:'Chirurgia Orale', category:'Chirurgia', year:'Interventi mirati', desc:"Estrazioni ed interventi chirurgici eseguiti con precisione, dalla diagnosi al post-operatorio.", tags:['Estrazioni','Chirurgia','Diagnosi'], image:'assets/card-chirurgia.webp' },
+  { name:'Protesi Fissa e Mobile', category:'Riabilitazione', year:'Su misura', desc:"Protesi dentarie fisse e mobili su misura per ripristinare funzione ed estetica del sorriso.", tags:['Protesi','Riabilitazione','Su misura'], image:'assets/card-protesi.webp' },
 ];
 const worksGrid = document.getElementById('works-grid');
 worksData.forEach((w, i) => {
@@ -943,10 +946,15 @@ worksData.forEach((w, i) => {
 
 /* ============ Services data ============ */
 const servicesData = [
-  { title:'Visita e Diagnosi', desc:'Un check-up completo per capire davvero di cosa ha bisogno il tuo sorriso.' },
-  { title:'Igiene Dentale', desc:'Pulizie professionali regolari per prevenire carie e problemi gengivali.' },
-  { title:'Chirurgia Orale', desc:'Interventi eseguiti con precisione, dall\'estrazione all\'implantologia.' },
-  { title:'Consulenza e Preventivi', desc:'Piani di cura chiari e trasparenti, su misura per ogni paziente.' },
+  { title:'Chirurgia Orale', desc:'Estrazioni e interventi chirurgici eseguiti con precisione e attenzione al paziente.' },
+  { title:'Implantologia', desc:'Impianti dentali di ultima generazione per un sorriso stabile e naturale.' },
+  { title:'Endodonzia', desc:'Cura canalare per salvare denti compromessi ed eliminare il dolore.' },
+  { title:'Odontoiatria Estetica', desc:'Faccette e trattamenti estetici per un sorriso luminoso e armonioso.' },
+  { title:'Igiene Orale', desc:'Pulizie professionali regolari per prevenire carie e problemi gengivali.' },
+  { title:'Protesi Fissa e Mobile', desc:'Protesi su misura per ripristinare funzione ed estetica del sorriso.' },
+  { title:'Conservativa', desc:'Otturazioni e cure conservative per proteggere la struttura naturale del dente.' },
+  { title:'Ortodonzia', desc:'Apparecchi e allineatori per un sorriso ben allineato, a ogni età.' },
+  { title:'Gnatologia', desc:"Diagnosi e cura dei disturbi dell'articolazione temporo-mandibolare." },
 ];
 const servicesList = document.getElementById('services-list');
 servicesData.forEach((s, i) => {

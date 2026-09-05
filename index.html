@@ -125,7 +125,7 @@ img{ display:block; max-width:100% }
 /* ---------- Hero ---------- */
 #home{ position:relative; isolation:isolate; overflow:hidden; border-radius:0 0 2rem 2rem; background:var(--hero-to); display:flex; flex-direction:column; min-height:100vh; min-height:100svh; }
 .liquid-wrap{ position:absolute; inset:0; z-index:0; }
-.liquid-wrap img{ object-fit:cover; object-position:50% 78%; position:absolute; inset:0; width:100%; height:100%; }
+.liquid-wrap img{ object-fit:cover; object-position:50% 45%; position:absolute; inset:0; width:100%; height:100%; }
 .liquid-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
 .hero-vignette{ position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(to bottom, rgba(255,255,255,.4) 0%, rgba(255,255,255,.12) 22%, rgba(255,255,255,.12) 55%, rgba(255,255,255,.55) 78%, rgba(255,255,255,.85) 100%); }
 .hero-watermark{ pointer-events:none; position:absolute; inset-inline:0; bottom:7rem; z-index:1; text-align:center; user-select:none; font-weight:700; line-height:1; font-size:var(--text-watermark); color:rgba(255,255,255,.4);
@@ -1086,7 +1086,7 @@ requestForm.addEventListener('submit', (e) => {
     const iw = afterImg.naturalWidth, ih = afterImg.naturalHeight;
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale, dh = ih * scale;
-    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.78;
+    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.45;
     coverCtx.clearRect(0, 0, cw, ch);
     coverCtx.drawImage(afterImg, dx, dy, dw, dh);
   }

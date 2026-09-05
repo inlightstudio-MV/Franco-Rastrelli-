@@ -85,16 +85,18 @@ img{ display:block; max-width:100% }
 @media (min-width:640px){ .loader-brand{ font-size:1.875rem; } .loader-logo-img{ height:6rem; } }
 
 /* ---------- Header ---------- */
-#site-header{ position:absolute; inset-inline:0; top:0; z-index:50; opacity:0; transform:translateY(-14px);
-  background:rgba(255,255,255,.42); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.5); box-shadow:0 1px 12px rgba(0,0,0,.06);
+#site-header{ position:absolute; inset-inline:0; top:0; z-index:50; opacity:0; transform:translateY(-14px); padding-bottom:2.5rem;
+  background:linear-gradient(to bottom, rgba(255,255,255,.6) 0%, rgba(255,255,255,.4) 55%, rgba(255,255,255,0) 100%);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
   transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
 #site-header.in{ opacity:1; transform:translateY(0); }
-.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.25rem; }
+.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.5rem 1.25rem; }
 @media (min-width:640px){ .header-row{ padding:1.5rem 2rem; } }
 .brand-btn{ display:flex; align-items:center; gap:.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
-.header-logo-img{ height:3.25rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
-@media (min-width:1024px){ .header-logo-img{ height:3.75rem; } }
+.header-logo-img{ height:4rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+@media (min-width:1024px){ .header-logo-img{ height:4.25rem; } }
 .brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .brand-btn:hover .hv-target{ transform:scale(1.04); }
 
@@ -117,7 +119,7 @@ img{ display:block; max-width:100% }
 
 .menu-btn{ border:1px solid rgba(230,229,226,.8); background:rgba(255,255,255,.4); backdrop-filter:blur(4px); border-radius:.875rem; }
 .menu-btn:hover{ background:rgba(255,255,255,.7); }
-.menu-btn .hv-target{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.05em; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+.menu-btn .hv-target{ display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1.25rem; font-size:.8125rem; font-weight:500; text-transform:uppercase; letter-spacing:.05em; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .menu-btn:hover .hv-target{ transform:scale(1.05); }
 .menu-btn svg{ width:.875rem; height:.875rem; }
 .menu-word{ display:inline; }

@@ -86,14 +86,15 @@ img{ display:block; max-width:100% }
 
 /* ---------- Header ---------- */
 #site-header{ position:absolute; inset-inline:0; top:0; z-index:50; opacity:0; transform:translateY(-14px);
+  background:rgba(255,255,255,.42); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.5); box-shadow:0 1px 12px rgba(0,0,0,.06);
   transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
 #site-header.in{ opacity:1; transform:translateY(0); }
 .header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.25rem; }
 @media (min-width:640px){ .header-row{ padding:1.5rem 2rem; } }
 .brand-btn{ display:flex; align-items:center; gap:.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
-.header-logo-img{ height:2.75rem; width:auto; filter:drop-shadow(0 1px 3px rgba(0,0,0,.35)); }
-.brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; padding:.4rem .75rem; border-radius:.875rem; background:rgba(255,255,255,.55); backdrop-filter:blur(6px); box-shadow:0 0 0 1px rgba(255,255,255,.6), 0 1px 2px rgba(0,0,0,.06); transition:transform .35s cubic-bezier(.2,.8,.2,1), background .2s; }
-.brand-btn:hover .hv-target{ background:rgba(255,255,255,.8); }
+.header-logo-img{ height:2.75rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+.brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .brand-btn:hover .hv-target{ transform:scale(1.04); }
 
 .primary-nav{ display:none; }

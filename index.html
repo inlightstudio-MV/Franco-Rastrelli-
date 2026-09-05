@@ -12,7 +12,7 @@
   --accent:#0ea5d8; --accent-from:#5cc7ec; --accent-to:#0b7aa8;
   --hero-from:#ecebe9; --hero-to:#c9c9c9;
   --radius-pill:9999px; --radius-card:2rem; --radius-card-sm:1.25rem; --radius-control:0.875rem;
-  --text-watermark:13rem; --container-shell:88rem;
+  --text-watermark:13rem; --container-shell:100rem;
 }
 *{ box-sizing:border-box; margin:0; padding:0 }
 html{ font-size:16px; -webkit-font-smoothing:antialiased }
@@ -93,7 +93,8 @@ img{ display:block; max-width:100% }
 .header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.25rem; }
 @media (min-width:640px){ .header-row{ padding:1.5rem 2rem; } }
 .brand-btn{ display:flex; align-items:center; gap:.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
-.header-logo-img{ height:2.75rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+.header-logo-img{ height:3.25rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+@media (min-width:1024px){ .header-logo-img{ height:3.75rem; } }
 .brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .brand-btn:hover .hv-target{ transform:scale(1.04); }
 
@@ -144,6 +145,7 @@ img{ display:block; max-width:100% }
 h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98; letter-spacing:-.02em; }
 @media (min-width:640px){ h1.hero-h1{ font-size:3rem; } }
 @media (min-width:768px){ h1.hero-h1{ font-size:3.75rem; } }
+@media (min-width:1280px){ h1.hero-h1{ font-size:4.5rem; } }
 
 .hero-rating{ display:flex; align-items:center; gap:.75rem; }
 .hero-stars{ color:var(--accent); display:inline-flex; gap:.125rem; }

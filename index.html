@@ -228,7 +228,6 @@ h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98;
 .eyebrow.pill{ border:1px solid var(--line); border-radius:9999px; padding:.375rem 1rem; }
 
 /* ---------- Portfolio ---------- */
-#works{ background:#fff; }
 .works-shell{ padding:2.5rem 1.25rem 5rem; }
 @media (min-width:640px){ .works-shell{ padding-inline:2rem; } }
 @media (min-width:1024px){ .works-shell{ padding-bottom:7rem; } }
@@ -244,9 +243,6 @@ h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98;
 .work-badge{ width:2.75rem; height:2.75rem; display:grid; place-items:center; border-radius:9999px; background:rgba(255,255,255,.1); color:#fff; box-shadow:0 0 0 1px rgba(255,255,255,.15); transition:transform .4s cubic-bezier(.2,.75,.15,1); }
 .work-card:hover .work-badge{ transform:rotate(45deg) scale(1.08); }
 .work-badge svg{ width:1.125rem; height:1.125rem; }
-.work-watermark{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; flex-direction:column; }
-.work-watermark svg{ width:4.5rem; height:4.5rem; color:rgba(255,255,255,.9); }
-.work-watermark .reg{ font-size:.75rem; color:rgba(255,255,255,.6); margin-top:.25rem; }
 .work-card-img{ position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; }
 .work-card-overlay{ position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(to top, rgba(4,16,28,.92), rgba(6,24,40,.3) 55%, rgba(4,18,30,.6)); }
 .work-bottom{ position:absolute; inset-inline:1.5rem; bottom:1.5rem; z-index:2; }
@@ -259,27 +255,6 @@ h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98;
 
 /* ---------- Services ---------- */
 #services{ background:#fff; }
-.services-shell{ padding:5rem 1.25rem; }
-@media (min-width:640px){ .services-shell{ padding-inline:2rem; } }
-@media (min-width:1024px){ .services-shell{ padding-block:7rem; } }
-.services-h2{ margin:1.25rem 0 3rem; max-width:16ch; font-size:2.25rem; font-weight:600; letter-spacing:-.02em; }
-@media (min-width:640px){ .services-h2{ margin-bottom:3.5rem; font-size:3rem; } }
-.service-row-li{ border-top:1px solid var(--line); }
-.service-row-li:first-child{ border-top:none; }
-.service-row{ display:flex; align-items:center; gap:1rem; border-radius:1.25rem; padding-block:1.5rem; padding-inline:0; transition:background .4s cubic-bezier(.2,.75,.2,1), padding .4s cubic-bezier(.2,.75,.2,1); }
-@media (min-width:640px){ .service-row{ gap:1.5rem; padding-block:2rem; } }
-.service-row:hover{ background:rgba(241,240,238,1); padding-left:2rem; padding-right:1.25rem; }
-.service-index{ width:1.75rem; font-size:.875rem; font-weight:500; color:rgba(17,17,17,.4); flex-shrink:0; }
-@media (min-width:640px){ .service-index{ width:2.5rem; } }
-.service-title{ flex:1; font-size:1.5rem; font-weight:500; letter-spacing:-.01em; }
-@media (min-width:640px){ .service-title{ font-size:1.875rem; } }
-@media (min-width:768px){ .service-title{ font-size:2.25rem; } }
-.service-desc{ display:none; max-width:20rem; font-size:.875rem; color:rgba(17,17,17,.55); }
-@media (min-width:1024px){ .service-desc{ display:block; } }
-.service-arrow{ width:2.5rem; height:2.5rem; display:grid; place-items:center; border-radius:9999px; background:var(--ink); color:#fff; flex-shrink:0; transition:transform .4s cubic-bezier(.2,.75,.15,1); }
-@media (min-width:640px){ .service-arrow{ width:3rem; height:3rem; } }
-.service-row:hover .service-arrow{ transform:translateX(5px); }
-.service-arrow svg{ width:1.125rem; height:1.125rem; }
 
 /* ---------- Stats ---------- */
 .stats-shell{ padding:0 1.25rem 5rem; }
@@ -413,8 +388,7 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
     <nav class="primary-nav" aria-label="Primary">
       <ul>
         <li class="nav-item" aria-current="page"><button class="hv-target" data-scrollto="home">Home</button></li>
-        <li class="nav-item"><button class="hv-target" data-scrollto="works">Trattamenti</button></li>
-        <li class="nav-item"><button class="hv-target" data-scrollto="services">Servizi<span class="nav-caret">▾</span></button></li>
+        <li class="nav-item"><button class="hv-target" data-scrollto="services">Servizi</button></li>
         <li class="nav-item"><button class="hv-target" data-scrollto="about">Studio</button></li>
         <li class="nav-item"><button class="hv-target" data-scrollto="careers">Team</button></li>
         <li class="nav-item"><button class="hv-target" data-open-modal>Contatti</button></li>
@@ -466,8 +440,8 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
           <span class="pill-btn dark with-arrow" data-open-modal role="button" tabindex="0">
             <span class="hv-target"><span>Prenota una visita</span><span class="pill-badge"><svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
           </span>
-          <span class="pill-btn outline no-arrow" data-scrollto="works" role="button" tabindex="0">
-            <span class="hv-target"><span>Scopri i trattamenti</span></span>
+          <span class="pill-btn outline no-arrow" data-scrollto="services" role="button" tabindex="0">
+            <span class="hv-target"><span>Scopri i servizi</span></span>
           </span>
         </div>
       </div>
@@ -522,21 +496,13 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
     </ul>
   </section>
 
-  <section id="works">
+  <section id="services">
     <div class="shell works-shell">
       <div class="works-head">
-        <div class="reveal-fade"><span class="eyebrow dark pill"><span class="dot"></span>Trattamenti</span></div>
-        <h2 class="works-h2" id="works-h2"></h2>
+        <div class="reveal-fade"><span class="eyebrow dark pill"><span class="dot"></span>Servizi</span></div>
+        <h2 class="works-h2" id="services-h2"></h2>
       </div>
-      <ul class="works-grid" id="works-grid"></ul>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="shell services-shell">
-      <div class="reveal-fade"><span class="eyebrow dark"><span class="dot"></span>Servizi</span></div>
-      <h2 class="services-h2" id="services-h2"></h2>
-      <ul id="services-list"></ul>
+      <ul class="works-grid" id="services-grid"></ul>
     </div>
   </section>
 
@@ -576,10 +542,10 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
       <div class="footer-col">
         <div class="footer-col-title">Servizi</div>
         <ul>
-          <li><a href="#works" class="anim-link"><span class="hv-target">Implantologia</span></a></li>
-          <li><a href="#works" class="anim-link"><span class="hv-target">Ortodonzia</span></a></li>
-          <li><a href="#works" class="anim-link"><span class="hv-target">Odontoiatria Estetica</span></a></li>
-          <li><a href="#works" class="anim-link"><span class="hv-target">Igiene Orale</span></a></li>
+          <li><a href="#services" class="anim-link"><span class="hv-target">Implantologia</span></a></li>
+          <li><a href="#services" class="anim-link"><span class="hv-target">Ortodonzia</span></a></li>
+          <li><a href="#services" class="anim-link"><span class="hv-target">Odontoiatria Estetica</span></a></li>
+          <li><a href="#services" class="anim-link"><span class="hv-target">Igiene Orale</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -815,7 +781,7 @@ function onReady(){
   playLineReveal(heroH1);
   setTimeout(() => playWordReveal(aboutH2), 0);
 
-  [worksH2El, servicesH2El, statsH2El, footerH2El].forEach(el => {
+  [servicesH2El, statsH2El, footerH2El].forEach(el => {
     observeLineOnScroll(el);
   });
 }
@@ -850,10 +816,8 @@ buildWordReveal(aboutH2, [
   io.observe(aboutH2);
 }
 
-const worksH2El = document.getElementById('works-h2');
-buildLineReveal(worksH2El, ['I nostri trattamenti']);
 const servicesH2El = document.getElementById('services-h2');
-buildLineReveal(servicesH2El, ["Tutti i nostri servizi"]);
+buildLineReveal(servicesH2El, ['Tutti i nostri servizi']);
 const statsH2El = document.getElementById('stats-h2');
 buildLineReveal(statsH2El, ['La cura si vede nei risultati.']);
 const footerH2El = document.getElementById('footer-h2');
@@ -909,66 +873,37 @@ const watermarkCheck = setInterval(() => {
   }
 }, 30);
 
-/* ============ Portfolio data ============ */
-const worksData = [
-  { name:'Implantologia', category:'Chirurgia', year:'Impianti moderni', desc:"Impianti dentali di ultima generazione per restituire funzionalità ed estetica al sorriso.", tags:['Impianti','Chirurgia','Protesi'], image:'assets/card-implantologia.webp' },
-  { name:'Ortodonzia', category:'Allineamento', year:'Adulti e bambini', desc:"Apparecchi tradizionali e allineatori trasparenti per un sorriso ben allineato, a ogni età.", tags:['Apparecchi','Allineatori','Ortodonzia'], image:'assets/card-ortodonzia.webp' },
-  { name:'Odontoiatria Estetica', category:'Estetica', year:'Sbiancamento e faccette', desc:"Sbiancamento professionale e faccette dentali per un sorriso naturale e luminoso.", tags:['Sbiancamento','Faccette','Estetica'], image:'assets/prima-dopo.webp' },
-  { name:'Igiene Orale', category:'Prevenzione', year:'Ogni età', desc:"Pulizia professionale, sigillature e controlli periodici per mantenere il sorriso sano nel tempo.", tags:['Igiene', 'Sigillature', 'Controlli'], image:'assets/card-igiene.webp' },
-  { name:'Chirurgia Orale', category:'Chirurgia', year:'Interventi mirati', desc:"Estrazioni ed interventi chirurgici eseguiti con precisione, dalla diagnosi al post-operatorio.", tags:['Estrazioni','Chirurgia','Diagnosi'], image:'assets/card-chirurgia.webp' },
-  { name:'Protesi Fissa e Mobile', category:'Riabilitazione', year:'Su misura', desc:"Protesi dentarie fisse e mobili su misura per ripristinare funzione ed estetica del sorriso.", tags:['Protesi','Riabilitazione','Su misura'], image:'assets/card-protesi.webp' },
+/* ============ Services data ============ */
+const servicesData = [
+  { name:'Chirurgia Orale', category:'Chirurgia', detail:'Interventi mirati', desc:"Estrazioni ed interventi chirurgici eseguiti con precisione, dalla diagnosi al post-operatorio.", tags:['Estrazioni','Chirurgia','Diagnosi'], image:'assets/card-chirurgia.webp' },
+  { name:'Implantologia', category:'Chirurgia', detail:'Impianti moderni', desc:"Impianti dentali di ultima generazione per restituire funzionalità ed estetica al sorriso.", tags:['Impianti','Chirurgia','Protesi'], image:'assets/card-implantologia.webp' },
+  { name:'Endodonzia', category:'Terapia canalare', detail:'Cura del dente', desc:"Cura canalare per salvare denti compromessi ed eliminare il dolore.", tags:['Canalare','Diagnosi','Radiografia'], image:'assets/card-endodonzia.webp' },
+  { name:'Odontoiatria Estetica', category:'Estetica', detail:'Sbiancamento e faccette', desc:"Sbiancamento professionale e faccette dentali per un sorriso naturale e luminoso.", tags:['Sbiancamento','Faccette','Estetica'], image:'assets/prima-dopo.webp' },
+  { name:'Igiene Orale', category:'Prevenzione', detail:'Ogni età', desc:"Pulizia professionale, sigillature e controlli periodici per mantenere il sorriso sano nel tempo.", tags:['Igiene','Sigillature','Controlli'], image:'assets/card-igiene.webp' },
+  { name:'Protesi Fissa e Mobile', category:'Riabilitazione', detail:'Su misura', desc:"Protesi dentarie fisse e mobili su misura per ripristinare funzione ed estetica del sorriso.", tags:['Protesi','Riabilitazione','Su misura'], image:'assets/card-protesi.webp' },
+  { name:'Conservativa', category:'Conservativa', detail:'Cura del dente', desc:"Otturazioni e cure conservative per proteggere la struttura naturale del dente.", tags:['Otturazioni','Conservativa','Cura'], image:'assets/card-conservativa.webp' },
+  { name:'Ortodonzia', category:'Allineamento', detail:'Adulti e bambini', desc:"Apparecchi tradizionali e allineatori trasparenti per un sorriso ben allineato, a ogni età.", tags:['Apparecchi','Allineatori','Ortodonzia'], image:'assets/card-ortodonzia.webp' },
+  { name:'Gnatologia', category:'Gnatologia', detail:'Analisi occlusale', desc:"Diagnosi e cura dei disturbi dell'articolazione temporo-mandibolare e della masticazione.", tags:['Occlusione','Articolazione','Diagnosi'], image:'assets/card-gnatologia.webp' },
 ];
-const worksGrid = document.getElementById('works-grid');
-worksData.forEach((w, i) => {
+const servicesGrid = document.getElementById('services-grid');
+servicesData.forEach((s, i) => {
   const li = document.createElement('li');
   li.className = 'reveal-fade';
   li.style.transitionDelay = (i * 90) + 'ms';
   li.innerHTML = `
-    <a href="#works" class="work-card">
-      ${w.image ? `<img class="work-card-img" src="${w.image}" alt="${w.name}" loading="lazy" /><div class="work-card-overlay"></div>` : ''}
+    <a href="#services" class="work-card">
+      <img class="work-card-img" src="${s.image}" alt="${s.name}" loading="lazy" /><div class="work-card-overlay"></div>
       <div class="work-meta">
-        <span>${w.category} — ${w.year}</span>
+        <span>${s.category} — ${s.detail}</span>
         <span class="work-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </div>
-      ${!w.image ? `<div class="work-watermark">
-        <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z"/></svg>
-        <span class="reg">®</span>
-      </div>` : ''}
       <div class="work-bottom">
-        <h3 class="work-title">${w.name}</h3>
-        <p class="work-desc">${w.desc}</p>
-        <div class="work-tags">${w.tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}</div>
+        <h3 class="work-title">${s.name}</h3>
+        <p class="work-desc">${s.desc}</p>
+        <div class="work-tags">${s.tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}</div>
       </div>
     </a>`;
-  worksGrid.appendChild(li);
-  observeReveal(li);
-});
-
-/* ============ Services data ============ */
-const servicesData = [
-  { title:'Chirurgia Orale', desc:'Estrazioni e interventi chirurgici eseguiti con precisione e attenzione al paziente.' },
-  { title:'Implantologia', desc:'Impianti dentali di ultima generazione per un sorriso stabile e naturale.' },
-  { title:'Endodonzia', desc:'Cura canalare per salvare denti compromessi ed eliminare il dolore.' },
-  { title:'Odontoiatria Estetica', desc:'Faccette e trattamenti estetici per un sorriso luminoso e armonioso.' },
-  { title:'Igiene Orale', desc:'Pulizie professionali regolari per prevenire carie e problemi gengivali.' },
-  { title:'Protesi Fissa e Mobile', desc:'Protesi su misura per ripristinare funzione ed estetica del sorriso.' },
-  { title:'Conservativa', desc:'Otturazioni e cure conservative per proteggere la struttura naturale del dente.' },
-  { title:'Ortodonzia', desc:'Apparecchi e allineatori per un sorriso ben allineato, a ogni età.' },
-  { title:'Gnatologia', desc:"Diagnosi e cura dei disturbi dell'articolazione temporo-mandibolare." },
-];
-const servicesList = document.getElementById('services-list');
-servicesData.forEach((s, i) => {
-  const li = document.createElement('li');
-  li.className = 'service-row-li reveal-fade';
-  li.style.transitionDelay = (i * 80) + 'ms';
-  li.innerHTML = `
-    <a href="#services" class="service-row">
-      <span class="service-index">${String(i+1).padStart(2,'0')}</span>
-      <h3 class="service-title">${s.title}</h3>
-      <p class="service-desc">${s.desc}</p>
-      <span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-    </a>`;
-  servicesList.appendChild(li);
+  servicesGrid.appendChild(li);
   observeReveal(li);
 });
 
@@ -1022,7 +957,7 @@ requestAnimationFrame(tickStats);
 const navMenu = document.getElementById('nav-menu');
 const navmenuList = document.getElementById('navmenu-list');
 const navItems = [
-  { label:'Home', id:'home' }, { label:'Trattamenti', id:'works' }, { label:'Servizi', id:'services' },
+  { label:'Home', id:'home' }, { label:'Servizi', id:'services' },
   { label:'Studio', id:'about' }, { label:'Team', id:'careers' }, { label:'Contatti', modal:true },
 ];
 navItems.forEach((item, i) => {

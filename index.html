@@ -123,7 +123,7 @@ img{ display:block; max-width:100% }
 @media (max-width:639px){ .menu-word{ display:none; } }
 
 /* ---------- Hero ---------- */
-#home{ position:relative; isolation:isolate; overflow:hidden; border-radius:0 0 2rem 2rem; background:var(--hero-to); }
+#home{ position:relative; isolation:isolate; overflow:hidden; border-radius:0 0 2rem 2rem; background:var(--hero-to); display:flex; flex-direction:column; min-height:100vh; min-height:100svh; }
 .liquid-wrap{ position:absolute; inset:0; z-index:0; }
 .liquid-wrap img{ object-fit:cover; position:absolute; inset:0; width:100%; height:100%; }
 .liquid-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
@@ -132,9 +132,9 @@ img{ display:block; max-width:100% }
   opacity:0; transform:translateY(20px); transition:opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); }
 .hero-watermark.in{ opacity:.4; transform:translateY(0); }
 
-.hero-grid{ position:relative; z-index:20; display:flex; flex-direction:column; gap:2rem; padding:7rem 1.25rem 5rem; }
+.hero-grid{ position:relative; z-index:20; display:flex; flex-direction:column; justify-content:center; gap:2rem; flex:1 1 auto; padding:7rem 1.25rem 3rem; box-sizing:border-box; }
 @media (min-width:640px){ .hero-grid{ padding-inline:2rem; } }
-@media (min-width:1024px){ .hero-grid{ display:grid; min-height:100lvh; grid-template-columns:repeat(12,1fr); gap:2.5rem; padding:9rem 2rem 7rem; } }
+@media (min-width:1024px){ .hero-grid{ display:grid; min-height:100lvh; flex:none; grid-template-columns:repeat(12,1fr); gap:2.5rem; padding:9rem 2rem 7rem; } }
 
 .hero-left{ display:flex; flex-direction:column; gap:1.75rem; }
 @media (min-width:1024px){ .hero-left{ grid-column:span 7; } }
@@ -157,6 +157,9 @@ h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98;
 .hero-statusbar .mid{ display:none; }
 @media (min-width:640px){ .hero-statusbar .mid{ display:inline; } }
 .hero-statusbar .right{ display:inline-flex; gap:.5rem; align-items:center; }
+.hero-scroll-hint{ background:none; border:none; font:inherit; color:inherit; text-transform:inherit; letter-spacing:inherit; cursor:pointer; padding:.25rem; }
+.hero-scroll-arrow{ display:inline-block; animation:hero-scroll-bounce 1.8s ease-in-out infinite; }
+@keyframes hero-scroll-bounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(4px); } }
 
 /* ---------- Buttons ---------- */
 .pill-btn{ display:inline-block; }
@@ -440,7 +443,7 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
       <canvas id="liquid-canvas" aria-hidden="true"></canvas>
     </div>
     <div class="hero-vignette"></div>
-    <div class="hero-watermark" id="hero-watermark">RASTRELLI</div>
+    <div class="hero-watermark" id="hero-watermark">RASTELLI</div>
 
     <div class="shell hero-grid">
       <div class="hero-left">
@@ -473,7 +476,7 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
     <div class="shell hero-statusbar reveal-fade no-y" data-delay="900">
       <span>Al servizio dei pazienti dal 2010</span>
       <span class="mid">Rignano Flaminio, provincia di Roma</span>
-      <span class="right">Scorri per scoprire <span>↓</span></span>
+      <button class="right hero-scroll-hint" data-scrollto="services" type="button">Scorri per scoprire <span class="hero-scroll-arrow">↓</span></button>
     </div>
   </section>
 

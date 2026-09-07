@@ -117,12 +117,11 @@ img{ display:block; max-width:100% }
 .nav-caret{ font-size:.75rem; opacity:.6; }
 
 .header-right{ display:flex; align-items:center; gap:.75rem; }
-.clock-chip{ display:none; align-items:center; gap:.75rem; border:1px solid rgba(230,229,226,.8); background:rgba(255,255,255,.4); backdrop-filter:blur(4px); border-radius:.875rem; padding:.5rem .75rem; font-size:.75rem; color:rgba(17,17,17,.7); }
-@media (min-width:768px){ .clock-chip{ display:flex; } }
-.clock-label{ color:rgba(17,17,17,.45); }
-.clock-time{ min-width:3.5rem; font-variant-numeric:tabular-nums; font-weight:500; color:#111; }
-.clock-sep{ color:rgba(17,17,17,.3); }
-.clock-date{ font-weight:500; }
+.phone-chip{ display:none; align-items:center; gap:.5rem; font-size:.9375rem; font-weight:600; color:var(--foreground); }
+@media (min-width:768px){ .phone-chip{ display:inline-flex; } }
+.phone-chip svg{ width:1.125rem; height:1.125rem; color:var(--accent); }
+.header-cta{ display:none; }
+@media (min-width:480px){ .header-cta{ display:inline-block; } }
 
 .menu-btn{ border:1px solid rgba(230,229,226,.8); background:rgba(255,255,255,.4); backdrop-filter:blur(4px); border-radius:.875rem; }
 .menu-btn:hover{ background:rgba(255,255,255,.7); }
@@ -133,42 +132,35 @@ img{ display:block; max-width:100% }
 @media (max-width:639px){ .menu-word{ display:none; } }
 
 /* ---------- Hero ---------- */
-#home{ position:relative; background:var(--background); }
-.hero-split{ display:flex; flex-direction:column; gap:2.75rem; padding:3.5rem 1.25rem 3.5rem; }
+#home{ position:relative; isolation:isolate; overflow:hidden; min-height:88vh; min-height:88svh; display:flex; flex-direction:column; }
+.hero-bg{ position:absolute; inset:0; z-index:0; }
+.hero-bg img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 35%; }
+.hero-bg::after{ content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(6,16,28,.15) 0%, rgba(6,16,28,.1) 35%, rgba(6,16,28,.55) 78%, rgba(6,16,28,.82) 100%); }
+
+.hero-split{ position:relative; z-index:2; flex:1 1 auto; display:flex; flex-direction:column; justify-content:flex-end; gap:1.75rem; padding:7rem 1.25rem 3rem; }
 @media (min-width:640px){ .hero-split{ padding-inline:2rem; } }
-@media (min-width:1024px){ .hero-split{ display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:4rem; padding:6rem 2rem 6.5rem; } }
+@media (min-width:1024px){ .hero-split{ padding:9rem 2rem 5rem; } }
 
-.hero-left{ display:flex; flex-direction:column; gap:1.75rem; }
-.hero-eyebrow{ font-size:.875rem; font-weight:500; color:var(--muted); display:inline-flex; align-items:center; gap:.5rem; }
-.hero-eyebrow .dot{ width:.375rem; height:.375rem; border-radius:9999px; background:var(--accent); }
+.hero-left{ display:flex; flex-direction:column; gap:1.5rem; max-width:42rem; }
+.hero-eyebrow{ font-size:.875rem; font-weight:500; color:rgba(255,255,255,.85); display:inline-flex; align-items:center; gap:.5rem; }
+.hero-eyebrow .dot{ width:.375rem; height:.375rem; border-radius:9999px; background:var(--accent-from); }
 
-h1.hero-h1{ max-width:16ch; font-size:2.25rem; font-weight:600; line-height:1.04; letter-spacing:-.02em; color:var(--foreground); }
+h1.hero-h1{ max-width:16ch; font-size:2.25rem; font-weight:600; line-height:1.04; letter-spacing:-.02em; color:#fff; }
 @media (min-width:640px){ h1.hero-h1{ font-size:2.875rem; } }
 @media (min-width:768px){ h1.hero-h1{ font-size:3.375rem; } }
 @media (min-width:1280px){ h1.hero-h1{ font-size:3.75rem; } }
 
-.hero-lede{ max-width:34ch; font-size:1.0625rem; color:var(--muted); line-height:1.6; }
+.hero-lede{ max-width:34ch; font-size:1.0625rem; color:rgba(255,255,255,.85); line-height:1.6; }
 
 .hero-rating{ display:flex; align-items:center; gap:.75rem; }
-.hero-stars{ color:var(--accent); display:inline-flex; gap:.125rem; }
+.hero-stars{ color:var(--accent-from); display:inline-flex; gap:.125rem; }
 .hero-stars svg{ width:1rem; height:1rem; }
-.hero-rating-text{ font-size:.875rem; font-weight:500; color:var(--muted); }
+.hero-rating-text{ font-size:.875rem; font-weight:500; color:rgba(255,255,255,.85); }
 
 .hero-cta-row{ display:flex; flex-wrap:wrap; gap:.75rem; }
 
-.hero-right{ position:relative; }
-.hero-photo-card{ position:relative; aspect-ratio:4/5; width:100%; max-width:26rem; margin-inline:auto; border-radius:1.75rem; overflow:hidden;
-  border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); background:var(--surface); }
-@media (min-width:1024px){ .hero-photo-card{ aspect-ratio:1/1.08; max-width:none; } }
-.hero-photo-card img{ object-fit:cover; object-position:50% 22%; position:absolute; inset:0; width:100%; height:100%; }
-.hero-photo-badge{ position:absolute; left:1.25rem; bottom:1.25rem; z-index:2; display:flex; align-items:center; gap:.625rem;
-  background:var(--glass-bg-strong); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%);
-  border:1px solid var(--glass-border); border-radius:9999px; padding:.625rem 1rem .625rem .625rem; box-shadow:var(--glass-shadow); }
-.hero-photo-badge .dot{ width:2.25rem; height:2.25rem; border-radius:9999px; background:var(--accent); color:#fff; display:grid; place-items:center; flex-shrink:0; }
-.hero-photo-badge .dot svg{ width:1.125rem; height:1.125rem; }
-.hero-photo-badge span{ font-size:.8125rem; font-weight:500; color:var(--foreground); }
-
-.hero-statusbar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; border-top:1px solid var(--glass-border); padding:1.25rem; font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.025em; color:var(--muted); }
+.hero-statusbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:.75rem; border-top:1px solid rgba(255,255,255,.18); padding:1.25rem; font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.025em; color:rgba(255,255,255,.75); }
 @media (min-width:640px){ .hero-statusbar{ padding-inline:2rem; } }
 .hero-statusbar .mid{ display:none; }
 @media (min-width:640px){ .hero-statusbar .mid{ display:inline; } }
@@ -219,18 +211,40 @@ h1.hero-h1{ max-width:16ch; font-size:2.25rem; font-weight:600; line-height:1.04
 .social-chip:hover svg{ transform:scale(1.18); }
 
 /* ---------- CreateBand ---------- */
-.createband ul{ display:flex; flex-direction:column; gap:.75rem; padding:2.5rem 1.25rem; }
-@media (min-width:640px){ .createband ul{ flex-direction:row; gap:1rem; padding-inline:2rem; } }
-.createband li{ flex:1; }
-.create-tile{ display:grid; place-items:center; height:6rem; border-radius:9999px; font-size:1.875rem; font-weight:500; transition:transform .3s cubic-bezier(.2,.8,.15,1); }
-@media (min-width:640px){ .create-tile{ height:10rem; font-size:2.25rem; } }
-.create-tile:hover{ transform:scale(1.03); }
-.create-tile.light{ background:var(--glass-bg); color:var(--foreground); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%); border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); }
-.create-tile.accent{ background:linear-gradient(to bottom right, var(--accent-from), var(--accent-to)); color:#fff; }
-.create-tile.dark{ background:var(--ink); color:#fff; }
-.create-tile.ghost{ background:rgba(255,255,255,.35); color:var(--subtle); border:1px solid var(--glass-border); }
-.create-tile svg{ width:2.25rem; height:2.25rem; }
-@media (min-width:640px){ .create-tile svg{ width:3rem; height:3rem; } }
+/* ---------- Benefits / Steps / Results ---------- */
+#benefits{ background:var(--background); }
+.benefits-shell{ padding:4rem 1.25rem; }
+@media (min-width:640px){ .benefits-shell{ padding-inline:2rem; } }
+@media (min-width:1024px){ .benefits-shell{ padding-block:6rem; } }
+.benefits-head{ display:flex; flex-direction:column; gap:1rem; margin-bottom:2.75rem; max-width:36rem; }
+.benefits-h2{ font-size:1.875rem; font-weight:600; letter-spacing:-.02em; }
+@media (min-width:640px){ .benefits-h2{ font-size:2.5rem; } }
+.benefits-grid{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+@media (min-width:640px){ .benefits-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1024px){ .benefits-grid{ grid-template-columns:repeat(4,1fr); } }
+.benefit-card{ border-radius:1.5rem; padding:1.75rem; background:var(--glass-bg); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%); border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); }
+.benefit-num{ display:block; font-size:.875rem; font-weight:600; color:var(--accent); margin-bottom:1rem; }
+.benefit-card h3{ font-size:1.0625rem; font-weight:600; letter-spacing:-.01em; margin-bottom:.5rem; }
+.benefit-card p{ font-size:.875rem; color:var(--muted); line-height:1.55; }
+
+#prima-visita{ background:var(--surface); }
+.steps-shell{ padding:4rem 1.25rem; }
+@media (min-width:640px){ .steps-shell{ padding-inline:2rem; } }
+@media (min-width:1024px){ .steps-shell{ padding-block:6rem; } }
+.steps-grid{ list-style:none; display:grid; grid-template-columns:1fr; gap:1.25rem; }
+@media (min-width:640px){ .steps-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1024px){ .steps-grid{ grid-template-columns:repeat(4,1fr); } }
+.step-card{ border-radius:1.5rem; padding:1.75rem; background:var(--background); border:1px solid var(--line); }
+.step-num{ display:grid; place-items:center; width:2.5rem; height:2.5rem; border-radius:9999px; background:var(--ink); color:#fff; font-size:.9375rem; font-weight:600; margin-bottom:1.25rem; }
+.step-card h3{ font-size:1.0625rem; font-weight:600; letter-spacing:-.01em; margin-bottom:.5rem; }
+.step-card p{ font-size:.875rem; color:var(--muted); line-height:1.55; }
+
+#risultati{ background:var(--background); }
+.results-shell{ padding:4rem 1.25rem; }
+@media (min-width:640px){ .results-shell{ padding-inline:2rem; } }
+@media (min-width:1024px){ .results-shell{ padding-block:6rem; } }
+.results-card{ border-radius:1.75rem; overflow:hidden; border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); max-width:56rem; margin-inline:auto; }
+.results-card img{ display:block; width:100%; height:auto; }
 
 /* ---------- Eyebrow ---------- */
 .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; font-size:.875rem; font-weight:500; }
@@ -404,17 +418,18 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
         <li class="nav-item" aria-current="page"><button class="hv-target" data-scrollto="home">Home</button></li>
         <li class="nav-item"><button class="hv-target" data-scrollto="services">Servizi</button></li>
         <li class="nav-item"><button class="hv-target" data-scrollto="about">Studio</button></li>
-        <li class="nav-item"><button class="hv-target" data-scrollto="careers">Team</button></li>
+        <li class="nav-item"><button class="hv-target" data-scrollto="prima-visita">Prima visita</button></li>
         <li class="nav-item"><button class="hv-target" data-open-modal>Contatti</button></li>
       </ul>
     </nav>
     <div class="header-right">
-      <div class="clock-chip">
-        <span class="clock-label">Ora locale</span>
-        <span class="clock-time" id="header-clock-time">9:41am</span>
-        <span class="clock-sep">•</span>
-        <span class="clock-date" id="header-clock-date">12 marzo, 2025</span>
-      </div>
+      <a href="tel:+390761508520" class="phone-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5.5c0-1.1.9-2 2-2H8l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v2.5c0 1.1-.9 2-2 2C10.5 19 5 13.5 3.5 5.5Z"/></svg>
+        <span>0761 50 85 20</span>
+      </a>
+      <span class="pill-btn dark no-arrow header-cta" data-open-modal role="button" tabindex="0">
+        <span class="hv-target"><span>Prenota</span></span>
+      </span>
       <button class="menu-btn" data-open-menu aria-label="Apri il menu">
         <span class="hv-target">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -427,6 +442,10 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
 
 <main id="main">
   <section id="home">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/hero-bg.webp" alt="" loading="eager" fetchpriority="high" />
+    </div>
+
     <div class="shell hero-split">
       <div class="hero-left">
         <div class="reveal-fade" data-delay="150">
@@ -448,19 +467,9 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
           <span class="pill-btn dark with-arrow" data-open-modal role="button" tabindex="0">
             <span class="hv-target"><span>Prenota una visita</span><span class="pill-badge"><svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
           </span>
-          <span class="pill-btn outline no-arrow" data-scrollto="services" role="button" tabindex="0">
+          <span class="pill-btn light no-arrow" data-scrollto="services" role="button" tabindex="0">
             <span class="hv-target"><span>Scopri i servizi</span></span>
           </span>
-        </div>
-      </div>
-
-      <div class="hero-right reveal-fade scale-in" data-delay="300">
-        <div class="hero-photo-card">
-          <img src="assets/hero-dentist.webp" alt="Dentista al lavoro — Studio Dentistico Franco Rastelli" loading="eager" fetchpriority="high" />
-          <div class="hero-photo-badge">
-            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18c0-3 1-5 1-8a2 2 0 0 1 4 0c0 3 1 5 1 8"/><path d="M12 2.75c2.6 2.3 4 5.8 4 9.25"/></svg></span>
-            <span>Precisione e cura in ogni intervento</span>
-          </div>
         </div>
       </div>
     </div>
@@ -503,13 +512,35 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
     </div>
   </section>
 
-  <section class="createband">
-    <ul class="shell">
-      <li class="reveal-fade" data-delay="0"><div class="create-tile light">Noi</div></li>
-      <li class="reveal-fade" data-delay="120"><div class="create-tile accent">Curiamo</div></li>
-      <li class="reveal-fade" data-delay="240"><div class="create-tile dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></li>
-      <li class="reveal-fade" data-delay="360"><div class="create-tile ghost">Sorrisi</div></li>
-    </ul>
+  <section id="benefits">
+    <div class="shell benefits-shell">
+      <div class="benefits-head">
+        <div class="reveal-fade"><span class="eyebrow dark pill"><span class="dot"></span>Perché sceglierci</span></div>
+        <h2 class="benefits-h2">Un'esperienza pensata attorno al paziente</h2>
+      </div>
+      <ul class="benefits-grid">
+        <li class="benefit-card reveal-fade" data-delay="0">
+          <span class="benefit-num">01</span>
+          <h3>Oltre 15 anni di esperienza</h3>
+          <p>Un percorso di cura consolidato, con protocolli affinati nel tempo per ogni tipo di trattamento.</p>
+        </li>
+        <li class="benefit-card reveal-fade" data-delay="100">
+          <span class="benefit-num">02</span>
+          <h3>Tecnologie moderne</h3>
+          <p>Strumentazione aggiornata per diagnosi precise e trattamenti più rapidi e confortevoli.</p>
+        </li>
+        <li class="benefit-card reveal-fade" data-delay="200">
+          <span class="benefit-num">03</span>
+          <h3>Cura personalizzata</h3>
+          <p>Ogni piano di trattamento è costruito sulle esigenze specifiche del singolo paziente.</p>
+        </li>
+        <li class="benefit-card reveal-fade" data-delay="300">
+          <span class="benefit-num">04</span>
+          <h3>Massimo comfort</h3>
+          <p>Un ambiente accogliente e un approccio attento, pensati per ridurre l'ansia da studio dentistico.</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section id="services">
@@ -522,7 +553,34 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
     </div>
   </section>
 
-  <section>
+  <section id="prima-visita">
+    <div class="shell steps-shell">
+      <div class="benefits-head">
+        <div class="reveal-fade"><span class="eyebrow dark pill"><span class="dot"></span>Come funziona</span></div>
+        <h2 class="benefits-h2">La tua prima visita, passo dopo passo</h2>
+      </div>
+      <ol class="steps-grid">
+        <li class="step-card reveal-fade" data-delay="0"><span class="step-num">1</span><h3>Ci contatti</h3><p>Chiami o compili il form per fissare un appuntamento nei tempi che preferisci.</p></li>
+        <li class="step-card reveal-fade" data-delay="90"><span class="step-num">2</span><h3>Visita conoscitiva</h3><p>Valutiamo la tua situazione con calma, ascoltando le tue esigenze.</p></li>
+        <li class="step-card reveal-fade" data-delay="180"><span class="step-num">3</span><h3>Piano di cura</h3><p>Ti proponiamo un percorso su misura, spiegato in modo chiaro e trasparente.</p></li>
+        <li class="step-card reveal-fade" data-delay="270"><span class="step-num">4</span><h3>Trattamento e follow-up</h3><p>Ti seguiamo in ogni fase, fino al controllo finale e oltre.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="risultati">
+    <div class="shell results-shell">
+      <div class="benefits-head">
+        <div class="reveal-fade"><span class="eyebrow dark pill"><span class="dot"></span>Risultati</span></div>
+        <h2 class="benefits-h2">La qualità dei nostri trattamenti</h2>
+      </div>
+      <div class="results-card reveal-fade scale-in" data-delay="100">
+        <img src="assets/prima-dopo.webp" alt="Esempi di trattamenti di odontoiatria estetica — Studio Dentistico Franco Rastelli" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="recensioni">
     <div class="shell stats-shell">
       <div class="stats-panel reveal-fade scale-in" id="stats-panel">
         <span class="eyebrow light"><span class="dot"></span>I numeri dello studio</span>
@@ -550,8 +608,8 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
         <div class="footer-col-title">Studio</div>
         <ul>
           <li><a href="#about" class="anim-link"><span class="hv-target">Chi siamo</span></a></li>
-          <li><a href="#careers" class="anim-link"><span class="hv-target">Team</span></a></li>
-          <li><a href="#partners" class="anim-link"><span class="hv-target">Recensioni</span></a></li>
+          <li><a href="#prima-visita" class="anim-link"><span class="hv-target">Prima visita</span></a></li>
+          <li><a href="#recensioni" class="anim-link"><span class="hv-target">Recensioni</span></a></li>
           <li><a href="#contact" class="anim-link" data-open-modal><span class="hv-target">Contatti</span></a></li>
         </ul>
       </div>
@@ -864,17 +922,9 @@ function formatTime(d){
   h = h % 12 || 12;
   return `${h}:${m}${mer}`;
 }
-function formatDate(d){
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  return `${d.getDate()} ${months[d.getMonth()]}, ${d.getFullYear()}`;
-}
-const headerClockTime = document.getElementById('header-clock-time');
-const headerClockDate = document.getElementById('header-clock-date');
 const navmenuClock = document.getElementById('navmenu-clock');
 function tickClock(){
   const now = new Date();
-  headerClockTime.textContent = formatTime(now);
-  headerClockDate.textContent = formatDate(now);
   navmenuClock.textContent = `Ora locale — ${formatTime(now)}`;
 }
 tickClock();
@@ -965,7 +1015,7 @@ const navMenu = document.getElementById('nav-menu');
 const navmenuList = document.getElementById('navmenu-list');
 const navItems = [
   { label:'Home', id:'home' }, { label:'Servizi', id:'services' },
-  { label:'Studio', id:'about' }, { label:'Team', id:'careers' }, { label:'Contatti', modal:true },
+  { label:'Studio', id:'about' }, { label:'Prima visita', id:'prima-visita' }, { label:'Contatti', modal:true },
 ];
 navItems.forEach((item, i) => {
   const li = document.createElement('li');

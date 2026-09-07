@@ -99,17 +99,17 @@ img{ display:block; max-width:100% }
   border-bottom:1px solid var(--glass-border); box-shadow:0 8px 30px rgba(11,22,34,.06);
   transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
 #site-header.in{ opacity:1; transform:translateY(0); }
-.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1rem 1.25rem; }
-@media (min-width:640px){ .header-row{ padding:1.125rem 2rem; } }
+.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.5rem 1.25rem; }
+@media (min-width:640px){ .header-row{ padding:1.75rem 2rem; } }
 .brand-btn{ display:flex; align-items:center; gap:.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
-.header-logo-img{ height:3.25rem; width:auto; }
-@media (min-width:1024px){ .header-logo-img{ height:3.5rem; } }
+.header-logo-img{ height:3.75rem; width:auto; }
+@media (min-width:1024px){ .header-logo-img{ height:4.25rem; } }
 .brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .brand-btn:hover .hv-target{ transform:scale(1.04); }
 
 .primary-nav{ display:none; }
 @media (min-width:1024px){ .primary-nav{ display:flex; } }
-.primary-nav ul{ display:flex; gap:2.25rem; font-size:1.0625rem; font-weight:600; letter-spacing:-.01em; }
+.primary-nav ul{ display:flex; gap:2.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
 .nav-item{ display:flex; align-items:center; gap:.25rem; }
 .nav-item .hv-target{ display:inline-flex; align-items:center; gap:.25rem; opacity:.92; color:var(--foreground); transform:translateY(0); transition:transform .35s cubic-bezier(.2,.75,.25,1), opacity .35s cubic-bezier(.2,.75,.25,1); }
 .nav-item:hover .hv-target{ transform:translateY(-2px); opacity:1; }
@@ -134,9 +134,9 @@ img{ display:block; max-width:100% }
 
 /* ---------- Hero ---------- */
 #home{ position:relative; background:var(--background); }
-.hero-split{ display:flex; flex-direction:column; gap:2.75rem; padding:2.75rem 1.25rem 3.5rem; }
+.hero-split{ display:flex; flex-direction:column; gap:2.75rem; padding:3.5rem 1.25rem 3.5rem; }
 @media (min-width:640px){ .hero-split{ padding-inline:2rem; } }
-@media (min-width:1024px){ .hero-split{ display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:4rem; padding:4.5rem 2rem 5.5rem; } }
+@media (min-width:1024px){ .hero-split{ display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:4rem; padding:6rem 2rem 6.5rem; } }
 
 .hero-left{ display:flex; flex-direction:column; gap:1.75rem; }
 .hero-eyebrow{ font-size:.875rem; font-weight:500; color:var(--muted); display:inline-flex; align-items:center; gap:.5rem; }
@@ -160,9 +160,7 @@ h1.hero-h1{ max-width:16ch; font-size:2.25rem; font-weight:600; line-height:1.04
 .hero-photo-card{ position:relative; aspect-ratio:4/5; width:100%; max-width:26rem; margin-inline:auto; border-radius:1.75rem; overflow:hidden;
   border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); background:var(--surface); }
 @media (min-width:1024px){ .hero-photo-card{ aspect-ratio:1/1.08; max-width:none; } }
-.liquid-wrap{ position:absolute; inset:0; z-index:0; }
-.liquid-wrap img{ object-fit:cover; object-position:50% 32%; position:absolute; inset:0; width:100%; height:100%; }
-.liquid-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.hero-photo-card img{ object-fit:cover; object-position:50% 22%; position:absolute; inset:0; width:100%; height:100%; }
 .hero-photo-badge{ position:absolute; left:1.25rem; bottom:1.25rem; z-index:2; display:flex; align-items:center; gap:.625rem;
   background:var(--glass-bg-strong); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%);
   border:1px solid var(--glass-border); border-radius:9999px; padding:.625rem 1rem .625rem .625rem; box-shadow:var(--glass-shadow); }
@@ -458,13 +456,10 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
 
       <div class="hero-right reveal-fade scale-in" data-delay="300">
         <div class="hero-photo-card">
-          <div class="liquid-wrap" id="liquid-wrap">
-            <img id="hero-base-img" src="assets/hero-closed.webp" alt="Sorriso — Studio Dentistico Franco Rastelli" loading="eager" fetchpriority="high" />
-            <canvas id="liquid-canvas" aria-hidden="true"></canvas>
-          </div>
+          <img src="assets/hero-dentist.webp" alt="Dentista al lavoro — Studio Dentistico Franco Rastelli" loading="eager" fetchpriority="high" />
           <div class="hero-photo-badge">
-            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><path d="M9 18c0-3 1-5 1-8a2 2 0 0 1 4 0c0 3 1 5 1 8"/><path d="M12 2.75c2.6 2.3 4 5.8 4 9.25"/></svg></span>
-            <span>Sfiora la foto per scoprire il sorriso</span>
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18c0-3 1-5 1-8a2 2 0 0 1 4 0c0 3 1 5 1 8"/><path d="M12 2.75c2.6 2.3 4 5.8 4 9.25"/></svg></span>
+            <span>Precisione e cura in ogni intervento</span>
           </div>
         </div>
       </div>
@@ -1053,147 +1048,4 @@ requestForm.addEventListener('submit', (e) => {
   }, 500);
 });
 
-/* ============ LiquidReveal hero effect ============ */
-(function initLiquidReveal(){
-  const wrap = document.getElementById('liquid-wrap');
-  const canvas = document.getElementById('liquid-canvas');
-  const ctx = canvas.getContext('2d');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
-
-  const afterImg = new Image(); // painted on cursor trail
-  afterImg.src = 'assets/hero-teeth.webp';
-
-  const brushRadius = 143;
-  const decay = 0.016;
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  let coverCanvas = document.createElement('canvas');
-  let coverCtx = coverCanvas.getContext('2d');
-  let brushCanvas = document.createElement('canvas');
-  let brushCtx = brushCanvas.getContext('2d');
-
-  let cw = 0, ch = 0;
-  let points = [];
-  let last = null;
-  let idle = 0;
-
-  function resize(){
-    const rect = wrap.getBoundingClientRect();
-    cw = Math.max(1, Math.round(rect.width * dpr));
-    ch = Math.max(1, Math.round(rect.height * dpr));
-    canvas.width = cw; canvas.height = ch;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    coverCanvas.width = cw; coverCanvas.height = ch;
-    drawCover();
-    const radius = brushRadius * dpr;
-    const diam = Math.ceil(radius * 2);
-    brushCanvas.width = diam; brushCanvas.height = diam;
-  }
-
-  function drawCover(){
-    if (!afterImg.complete || !afterImg.naturalWidth) return;
-    const iw = afterImg.naturalWidth, ih = afterImg.naturalHeight;
-    const scale = Math.max(cw / iw, ch / ih);
-    const dw = iw * scale, dh = ih * scale;
-    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.32;
-    coverCtx.clearRect(0, 0, cw, ch);
-    coverCtx.drawImage(afterImg, dx, dy, dw, dh);
-  }
-
-  afterImg.addEventListener('load', () => { resize(); if (isTouchDevice) scheduleAutoSweep(); });
-
-  const ro = new ResizeObserver(() => resize());
-  ro.observe(wrap);
-  resize();
-
-  let autoSweepScheduled = false;
-  function scheduleAutoSweep(){
-    if (autoSweepScheduled) return;
-    autoSweepScheduled = true;
-    setTimeout(runAutoSweep, 900);
-  }
-  function runAutoSweep(){
-    if (!cw || !ch) return;
-    const cx = cw * 0.42, cy = ch * 0.58;
-    const rx = cw * 0.16, ry = ch * 0.05;
-    const durationMs = 1800;
-    const start = performance.now();
-    function step(now){
-      const t = Math.min((now - start) / durationMs, 1);
-      const angle = t * Math.PI * 1.6 - Math.PI * 0.3;
-      const x = cx + Math.cos(angle) * rx;
-      const y = cy + Math.sin(angle * 2) * ry;
-      points.push({ x, y });
-      if (t < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  function toCanvasCoords(clientX, clientY){
-    const rect = wrap.getBoundingClientRect();
-    return { x: (clientX - rect.left) * dpr, y: (clientY - rect.top) * dpr };
-  }
-
-  window.addEventListener('pointermove', (e) => {
-    const p = toCanvasCoords(e.clientX, e.clientY);
-    const radius = brushRadius * dpr;
-    if (p.x < -radius || p.x > cw + radius || p.y < -radius || p.y > ch + radius) {
-      last = null;
-      return;
-    }
-    if (last) {
-      const dx = p.x - last.x, dy = p.y - last.y;
-      const dist = Math.hypot(dx, dy);
-      const step = Math.max(radius * 0.3, 1);
-      const n = Math.min(Math.ceil(dist / step), 60);
-      for (let i = 1; i <= n; i++) {
-        points.push({ x: last.x + (dx * i) / n, y: last.y + (dy * i) / n });
-      }
-    } else {
-      points.push(p);
-    }
-    last = p;
-  }, { passive: true });
-
-  function stamp(x, y){
-    const radius = brushRadius * dpr;
-    const diam = Math.ceil(radius * 2);
-    const c = radius;
-    brushCtx.clearRect(0, 0, diam, diam);
-    brushCtx.globalCompositeOperation = 'source-over';
-    const grad = brushCtx.createRadialGradient(c, c, 0, c, c, radius);
-    grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.55, 'rgba(255,255,255,0.82)');
-    grad.addColorStop(1, 'rgba(255,255,255,0)');
-    brushCtx.fillStyle = grad;
-    brushCtx.fillRect(0, 0, diam, diam);
-    brushCtx.globalCompositeOperation = 'source-in';
-    brushCtx.drawImage(coverCanvas, x - c, y - c, diam, diam, 0, 0, diam, diam);
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.drawImage(brushCanvas, x - c, y - c);
-  }
-
-  function tick(){
-    if (points.length > 0) idle = 0; else idle++;
-    if (idle <= 120) {
-      const drawing = points.length > 0;
-      const fade = drawing ? decay : Math.min(decay + idle * 0.004, 0.5);
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.fillStyle = `rgba(0,0,0,${fade})`;
-      ctx.fillRect(0, 0, cw, ch);
-      if (drawing) {
-        points.forEach(p => stamp(p.x, p.y));
-        points = [];
-      }
-      if (idle === 120) {
-        ctx.clearRect(0, 0, cw, ch);
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
 </script>

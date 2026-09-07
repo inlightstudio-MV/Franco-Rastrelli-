@@ -94,18 +94,16 @@ img{ display:block; max-width:100% }
 @media (min-width:640px){ .loader-brand{ font-size:1.875rem; } .loader-logo-img{ height:6rem; } }
 
 /* ---------- Header ---------- */
-#site-header{ position:absolute; inset-inline:0; top:0; z-index:50; opacity:0; transform:translateY(-14px); padding-bottom:2.5rem;
-  background:linear-gradient(to bottom, rgba(255,255,255,.6) 0%, rgba(255,255,255,.4) 55%, rgba(255,255,255,0) 100%);
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-  -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
-  mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+#site-header{ position:sticky; top:0; z-index:50; opacity:0; transform:translateY(-14px);
+  background:var(--glass-bg-strong); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%);
+  border-bottom:1px solid var(--glass-border); box-shadow:0 8px 30px rgba(11,22,34,.06);
   transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
 #site-header.in{ opacity:1; transform:translateY(0); }
-.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.5rem 1.25rem; }
-@media (min-width:640px){ .header-row{ padding:1.5rem 2rem; } }
+.header-row{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1rem 1.25rem; }
+@media (min-width:640px){ .header-row{ padding:1.125rem 2rem; } }
 .brand-btn{ display:flex; align-items:center; gap:.5rem; font-size:1.125rem; font-weight:600; letter-spacing:-.01em; }
-.header-logo-img{ height:4rem; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
-@media (min-width:1024px){ .header-logo-img{ height:4.25rem; } }
+.header-logo-img{ height:3.25rem; width:auto; }
+@media (min-width:1024px){ .header-logo-img{ height:3.5rem; } }
 .brand-btn .hv-target{ display:flex; align-items:center; gap:.5rem; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 .brand-btn:hover .hv-target{ transform:scale(1.04); }
 
@@ -113,7 +111,7 @@ img{ display:block; max-width:100% }
 @media (min-width:1024px){ .primary-nav{ display:flex; } }
 .primary-nav ul{ display:flex; gap:2.25rem; font-size:1.0625rem; font-weight:600; letter-spacing:-.01em; }
 .nav-item{ display:flex; align-items:center; gap:.25rem; }
-.nav-item .hv-target{ display:inline-flex; align-items:center; gap:.25rem; opacity:.92; color:rgba(17,17,17,.9); transform:translateY(0); transition:transform .35s cubic-bezier(.2,.75,.25,1), opacity .35s cubic-bezier(.2,.75,.25,1); }
+.nav-item .hv-target{ display:inline-flex; align-items:center; gap:.25rem; opacity:.92; color:var(--foreground); transform:translateY(0); transition:transform .35s cubic-bezier(.2,.75,.25,1), opacity .35s cubic-bezier(.2,.75,.25,1); }
 .nav-item:hover .hv-target{ transform:translateY(-2px); opacity:1; }
 .nav-item[aria-current="page"] .hv-target{ opacity:1; }
 .nav-caret{ font-size:.75rem; opacity:.6; }
@@ -135,39 +133,44 @@ img{ display:block; max-width:100% }
 @media (max-width:639px){ .menu-word{ display:none; } }
 
 /* ---------- Hero ---------- */
-#home{ position:relative; isolation:isolate; overflow:hidden; border-radius:0 0 2rem 2rem; background:var(--hero-to); display:flex; flex-direction:column; min-height:100vh; min-height:100svh; }
-.liquid-wrap{ position:absolute; inset:0; z-index:0; }
-.liquid-wrap img{ object-fit:cover; object-position:50% 45%; position:absolute; inset:0; width:100%; height:100%; }
-.liquid-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
-.hero-vignette{ position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(to bottom, rgba(255,255,255,.4) 0%, rgba(255,255,255,.12) 22%, rgba(255,255,255,.12) 55%, rgba(255,255,255,.55) 78%, rgba(255,255,255,.85) 100%); }
-.hero-watermark{ pointer-events:none; position:absolute; inset-inline:0; bottom:7rem; z-index:1; text-align:center; user-select:none; font-weight:700; line-height:1; font-size:var(--text-watermark); color:rgba(255,255,255,.4);
-  opacity:0; transform:translateY(20px); transition:opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); }
-.hero-watermark.in{ opacity:.4; transform:translateY(0); }
-
-.hero-grid{ position:relative; z-index:20; display:flex; flex-direction:column; justify-content:flex-end; gap:2rem; flex:1 1 auto; padding:7rem 1.25rem 3rem; box-sizing:border-box; }
-@media (min-width:640px){ .hero-grid{ padding-inline:2rem; } }
-@media (min-width:1024px){ .hero-grid{ display:grid; align-content:end; min-height:100lvh; flex:none; grid-template-columns:repeat(12,1fr); gap:2.5rem; padding:9rem 2rem 7rem; } }
+#home{ position:relative; background:var(--background); }
+.hero-split{ display:flex; flex-direction:column; gap:2.75rem; padding:2.75rem 1.25rem 3.5rem; }
+@media (min-width:640px){ .hero-split{ padding-inline:2rem; } }
+@media (min-width:1024px){ .hero-split{ display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:4rem; padding:4.5rem 2rem 5.5rem; } }
 
 .hero-left{ display:flex; flex-direction:column; gap:1.75rem; }
-@media (min-width:1024px){ .hero-left{ grid-column:span 7; } }
-.hero-eyebrow{ font-size:.875rem; font-weight:500; color:rgba(17,17,17,.7); display:inline-flex; align-items:center; gap:.5rem; }
-.hero-eyebrow .dot{ width:.375rem; height:.375rem; border-radius:9999px; background:rgba(17,17,17,.5); }
+.hero-eyebrow{ font-size:.875rem; font-weight:500; color:var(--muted); display:inline-flex; align-items:center; gap:.5rem; }
+.hero-eyebrow .dot{ width:.375rem; height:.375rem; border-radius:9999px; background:var(--accent); }
 
-h1.hero-h1{ max-width:18ch; font-size:2.25rem; font-weight:600; line-height:.98; letter-spacing:-.02em; color:#211a15;
-  text-shadow:0 1px 24px rgba(255,255,255,.55), 0 1px 2px rgba(255,255,255,.4);
-}
-@media (min-width:640px){ h1.hero-h1{ font-size:3rem; } }
-@media (min-width:768px){ h1.hero-h1{ font-size:3.75rem; } }
-@media (min-width:1280px){ h1.hero-h1{ font-size:4.5rem; } }
+h1.hero-h1{ max-width:16ch; font-size:2.25rem; font-weight:600; line-height:1.04; letter-spacing:-.02em; color:var(--foreground); }
+@media (min-width:640px){ h1.hero-h1{ font-size:2.875rem; } }
+@media (min-width:768px){ h1.hero-h1{ font-size:3.375rem; } }
+@media (min-width:1280px){ h1.hero-h1{ font-size:3.75rem; } }
+
+.hero-lede{ max-width:34ch; font-size:1.0625rem; color:var(--muted); line-height:1.6; }
 
 .hero-rating{ display:flex; align-items:center; gap:.75rem; }
 .hero-stars{ color:var(--accent); display:inline-flex; gap:.125rem; }
 .hero-stars svg{ width:1rem; height:1rem; }
-.hero-rating-text{ font-size:.875rem; font-weight:500; color:rgba(17,17,17,.7); }
+.hero-rating-text{ font-size:.875rem; font-weight:500; color:var(--muted); }
 
 .hero-cta-row{ display:flex; flex-wrap:wrap; gap:.75rem; }
 
-.hero-statusbar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; border-top:1px solid rgba(17,17,17,.1); padding:1.25rem; font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.025em; color:rgba(17,17,17,.6); }
+.hero-right{ position:relative; }
+.hero-photo-card{ position:relative; aspect-ratio:4/5; width:100%; max-width:26rem; margin-inline:auto; border-radius:1.75rem; overflow:hidden;
+  border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); background:var(--surface); }
+@media (min-width:1024px){ .hero-photo-card{ aspect-ratio:1/1.08; max-width:none; } }
+.liquid-wrap{ position:absolute; inset:0; z-index:0; }
+.liquid-wrap img{ object-fit:cover; object-position:50% 32%; position:absolute; inset:0; width:100%; height:100%; }
+.liquid-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.hero-photo-badge{ position:absolute; left:1.25rem; bottom:1.25rem; z-index:2; display:flex; align-items:center; gap:.625rem;
+  background:var(--glass-bg-strong); -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%); backdrop-filter:blur(var(--glass-blur)) saturate(160%);
+  border:1px solid var(--glass-border); border-radius:9999px; padding:.625rem 1rem .625rem .625rem; box-shadow:var(--glass-shadow); }
+.hero-photo-badge .dot{ width:2.25rem; height:2.25rem; border-radius:9999px; background:var(--accent); color:#fff; display:grid; place-items:center; flex-shrink:0; }
+.hero-photo-badge .dot svg{ width:1.125rem; height:1.125rem; }
+.hero-photo-badge span{ font-size:.8125rem; font-weight:500; color:var(--foreground); }
+
+.hero-statusbar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; border-top:1px solid var(--glass-border); padding:1.25rem; font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.025em; color:var(--muted); }
 @media (min-width:640px){ .hero-statusbar{ padding-inline:2rem; } }
 .hero-statusbar .mid{ display:none; }
 @media (min-width:640px){ .hero-statusbar .mid{ display:inline; } }
@@ -426,20 +429,14 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
 
 <main id="main">
   <section id="home">
-    <div class="liquid-wrap" id="liquid-wrap">
-      <img id="hero-base-img" src="assets/hero-closed.webp" alt="Sorriso — Studio Dentistico Franco Rastelli" loading="eager" fetchpriority="high" />
-      <canvas id="liquid-canvas" aria-hidden="true"></canvas>
-    </div>
-    <div class="hero-vignette"></div>
-    <div class="hero-watermark" id="hero-watermark">RASTELLI</div>
-
-    <div class="shell hero-grid">
+    <div class="shell hero-split">
       <div class="hero-left">
-        <div class="reveal-fade" data-delay="200">
+        <div class="reveal-fade" data-delay="150">
           <span class="hero-eyebrow"><span class="dot"></span>Studio Dentistico a Rignano Flaminio</span>
         </div>
-        <h1 class="hero-h1" id="hero-h1"></h1>
-        <div class="hero-rating reveal-fade" data-delay="650">
+        <h1 class="hero-h1 reveal-fade" data-delay="250" id="hero-h1"></h1>
+        <p class="hero-lede reveal-fade" data-delay="400">Da oltre 15 anni curiamo il sorriso dei nostri pazienti con un approccio personalizzato, tecnologie moderne e la massima attenzione al comfort.</p>
+        <div class="hero-rating reveal-fade" data-delay="500">
           <span class="hero-stars">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z"/></svg>
@@ -449,7 +446,7 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
           </span>
           <span class="hero-rating-text">4,9/5 su Google, oltre 500 pazienti</span>
         </div>
-        <div class="hero-cta-row reveal-fade" data-delay="750">
+        <div class="hero-cta-row reveal-fade" data-delay="600">
           <span class="pill-btn dark with-arrow" data-open-modal role="button" tabindex="0">
             <span class="hv-target"><span>Prenota una visita</span><span class="pill-badge"><svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
           </span>
@@ -459,9 +456,21 @@ footer{ position:relative; overflow:hidden; border-radius:2rem 2rem 0 0; backgro
         </div>
       </div>
 
+      <div class="hero-right reveal-fade scale-in" data-delay="300">
+        <div class="hero-photo-card">
+          <div class="liquid-wrap" id="liquid-wrap">
+            <img id="hero-base-img" src="assets/hero-closed.webp" alt="Sorriso — Studio Dentistico Franco Rastelli" loading="eager" fetchpriority="high" />
+            <canvas id="liquid-canvas" aria-hidden="true"></canvas>
+          </div>
+          <div class="hero-photo-badge">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><path d="M9 18c0-3 1-5 1-8a2 2 0 0 1 4 0c0 3 1 5 1 8"/><path d="M12 2.75c2.6 2.3 4 5.8 4 9.25"/></svg></span>
+            <span>Sfiora la foto per scoprire il sorriso</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="shell hero-statusbar reveal-fade no-y" data-delay="900">
+    <div class="shell hero-statusbar reveal-fade no-y" data-delay="700">
       <span>Al servizio dei pazienti dal 2010</span>
       <span class="mid">Rignano Flaminio, provincia di Roma</span>
       <button class="right hero-scroll-hint" data-scrollto="services" type="button">Scorri per scoprire <span class="hero-scroll-arrow">↓</span></button>
@@ -876,15 +885,6 @@ function tickClock(){
 tickClock();
 setInterval(tickClock, 1000);
 
-/* ============ Watermark reveal ============ */
-const heroWatermark = document.getElementById('hero-watermark');
-const watermarkCheck = setInterval(() => {
-  if (ready) {
-    setTimeout(() => heroWatermark.classList.add('in'), 300);
-    clearInterval(watermarkCheck);
-  }
-}, 30);
-
 /* ============ Services data ============ */
 const servicesData = [
   { name:'Chirurgia Orale', category:'Chirurgia', detail:'Interventi mirati', desc:"Estrazioni ed interventi chirurgici eseguiti con precisione, dalla diagnosi al post-operatorio.", tags:['Estrazioni','Chirurgia','Diagnosi'], image:'assets/card-chirurgia.webp' },
@@ -1098,7 +1098,7 @@ requestForm.addEventListener('submit', (e) => {
     const iw = afterImg.naturalWidth, ih = afterImg.naturalHeight;
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale, dh = ih * scale;
-    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.45;
+    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.32;
     coverCtx.clearRect(0, 0, cw, ch);
     coverCtx.drawImage(afterImg, dx, dy, dw, dh);
   }
